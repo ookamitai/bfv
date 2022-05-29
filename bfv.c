@@ -17,7 +17,6 @@ const char clearline[] = "\r                                                    
 	int		left_bra = 0;
 	int		right_bra = 0;
 	int		offset = 0;
-	char	output[4096] = "";
 	FILE*	bff;
 /* i think i wont mess up those pointers, hopefully */
 
@@ -91,10 +90,10 @@ int exec(FILE* file){
 	
 	while ((ch = fgetc(file)) != EOF){
 		Sleep(interval); /* for nicer visuals */
+		upd_console();
 		eval(ch);
 		printf("%s", clearline);
 		printf("\r");
-		upd_console();
 	}
 		fclose(file);
 }
@@ -123,9 +122,7 @@ int main(int argc, char *argv[]) {
 	scanf("%d", &interval);
 	
 	exec(bff);
-	strcat(output, "\0");
-	printf("\nOutput: %s", output);
-	//printf("\n%s", output);
+
 	return 0;
 }
 

@@ -92,6 +92,7 @@ int exec(FILE* file){
 		Sleep(interval); /* for nicer visuals */
 		upd_console();
 		eval(ch);
+		
 		printf("%s", clearline);
 		printf("\r");
 	}
